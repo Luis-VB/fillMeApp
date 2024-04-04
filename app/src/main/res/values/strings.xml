@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">fillMeApp</string>
+    <string name="my_button">My Button</string>
+    <string name="cambiar_color">Cambiar color</string>
+    <string name="i_am_username">I am UserName</string>
+    <string name="i_am_userage">I am UserAge</string>
+    <string name="my_button_1">my button 1</string>
+    <string name="i_am_usercity">I am UserCity</string>
+    <string name="i_am_an_editable_text">I am an editable text</string>
+    <string name="i_am_an_e_text" />
+    <string name="change_activity">Change_Activity</string>
+    <string name="spinner_title" />
+    <string name="spinner_title2">Select text color</string>
+    <string-array name="spinner_array">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Purple</item>
+    </string-array>
+</resources>
