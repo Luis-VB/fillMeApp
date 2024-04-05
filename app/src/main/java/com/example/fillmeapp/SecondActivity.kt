@@ -40,6 +40,7 @@ class SecondActivity : AppCompatActivity() {
 
         userName.text = intent.getStringExtra("data")
         userAge.text = intent.getStringExtra("data1")
+        userCity.text = intent.getStringExtra("data2")
     }
 }
 
