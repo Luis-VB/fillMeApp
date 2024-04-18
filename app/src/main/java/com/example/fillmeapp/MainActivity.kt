@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.myButtonId4.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
+            intent.putExtra("data5","PMOS Android Team")
             startActivity(intent)
         }
     }

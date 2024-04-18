@@ -14,16 +14,19 @@ import com.example.fillmeapp.databinding.ActivityThirdBinding
 * */
 class ThirdActivity: AppCompatActivity() {
 
-    lateinit var binding: ActivityThirdBinding
-
+    lateinit var binding3: ActivityThirdBinding
     fun initViews() {
 
-        binding.txt31.text
+        binding3.txt31.text = intent.getStringExtra("data5")
     }
+
+//    fun printListOfTeamMembers(mutableList: MutableList<String>) {
+//        var androidTeamList = mutableListOf.suffle("Patricia")
+//    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityThirdBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding3 = ActivityThirdBinding.inflate(layoutInflater)
+        setContentView(binding3.root)
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

@@ -22,13 +22,13 @@
         android:id="@+id/myButtonId1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="36dp"
         android:text="@string/my_button_1"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/color_spinner"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
         android:id="@+id/myButtonId2"
@@ -38,9 +38,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/txt1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toEndOf="@+id/myButtonId1"
-        app:layout_constraintTop_toBottomOf="@+id/color_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/color_spinner"
+        app:layout_constraintVertical_bias="0.492" />
 
     <TextView
         android:id="@+id/txt1"
