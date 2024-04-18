@@ -15,6 +15,10 @@
     <string name="Enter_Text" />
     <string name="select_color" />
     <string name="i_want_my_joke">I want my joke!</string>
+    <string name="change_spinner_color">Change spinner color</string>
+    <string name="android_team">Android Team</string>
+    <string name="pmos_android_team_members">PMOS Android_Team Members</string>
+    <string name="team_members">Team Members</string>
     <string-array name="spinner_array">
         <item>Black</item>
         <item>Blue</item>

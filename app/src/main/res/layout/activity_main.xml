@@ -11,107 +11,116 @@
 
     <Spinner
         android:id="@+id/color_spinner"
-        android:hint="@string/select_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:prompt="@string/spinner_title"/>
+        android:background="#f52c56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/change_spinner_color" />
 
     <Button
         android:id="@+id/myButtonId1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:text="@string/my_button_1"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toBottomOf="@+id/color_spinner"
+        app:layout_constraintVertical_bias="0.048" />
 
     <Button
         android:id="@+id/myButtonId2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/accent"
         android:text="@string/cambiar_color"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txt1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintStart_toEndOf="@+id/myButtonId1"
+        app:layout_constraintTop_toBottomOf="@+id/color_spinner" />
 
     <TextView
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/i_am_username"
-        android:textSize="20sp"
         android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.196" />
+        app:layout_constraintTop_toBottomOf="@+id/myButtonId1" />
 
     <TextView
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/i_am_userage"
-        android:textSize="20sp"
         android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintTop_toBottomOf="@+id/txt1" />
 
     <TextView
         android:id="@+id/txt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/i_am_usercity"
-        android:textSize="20sp"
         android:textColor="@color/primary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356" />
+        app:layout_constraintTop_toBottomOf="@+id/txt2" />
 
     <EditText
         android:id="@+id/edit_text_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_text"
-        android:text=""
-        android:textSize="20sp"
         android:layout_margin="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:hint="@string/enter_text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txt3" />
 
     <Button
         android:id="@+id/myButtonId3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/accent"
+        android:textColor="@color/primary"
         android:text="@string/i_want_my_joke"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_id" />
 
+    <Button
+        android:id="@+id/myButtonId4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/team_members"
+        android:backgroundTint="@color/accent"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myButtonId3"
+        app:layout_constraintVertical_bias="0.156" />
 
 
     />

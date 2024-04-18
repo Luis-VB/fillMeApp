@@ -1,4 +1,6 @@
 package com.example.fillmeapp
+/*
+Pasar un numero y otro texto igual que hemos hecho con el userName a SecondActivity desde la MainActivity*/
 
 import android.os.Bundle
 import android.widget.TextView
@@ -6,43 +8,34 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.fillmeapp.databinding.ActivityMainBinding
+import com.example.fillmeapp.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity() {
-    var pacoProfile = UserProfileData()
-    lateinit var userName: TextView
-    lateinit var userAge: TextView
-    lateinit var userCity: TextView
 
+    lateinit var binding2: ActivitySecondBinding
     fun initViews() {
 
-        userName = findViewById(R.id.txt1_1)
-        userAge = findViewById(R.id.txt1_2)
-        userCity = findViewById(R.id.txt1_3)
+        binding2.txt21.setTextColor(getColor(R.color.accent))
+        binding2.txt21.text = intent.getStringExtra("data")
+        binding2.txt22.text = intent.getStringExtra("data1")
+        binding2.txt23.setTextColor(getColor(R.color.accent))
+        binding2.txt23.text = intent.getStringExtra("data2")
+        binding2.txt24.text = intent.getStringExtra("data3")
+        binding2.txt25.setTextColor(getColor(R.color.accent))
+        binding2.txt25.text = intent.getIntExtra("data4",0).toString()
     }
 
-    fun initTextViews() {
-        // Take user profile data and displays in the TextView
-        userName.text = pacoProfile.userName
-        userAge.text = pacoProfile.userAge.toString()
-        userCity.text = pacoProfile.userCity
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding2 = ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding2.root)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_second)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
         initViews()
-        initTextViews()
-
-        userName.text = intent.getStringExtra("data")
-        userAge.text = intent.getStringExtra("data1")
-        userCity.text = intent.getStringExtra("data2")
     }
 }
-
-/*
-Pasar un numero y otro texto igual que hemos hecho con el userName a SecondActivity desde la MainActivity*/
