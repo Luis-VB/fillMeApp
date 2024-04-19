@@ -1,11 +1,10 @@
 package com.example.fillmeapp
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.HorizontalScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fillmeapp.databinding.ActivitySecondBinding
 import com.example.fillmeapp.databinding.ActivityThirdBinding
 
 /*  1. Crear un titulo o encabezado (TextView) para el eqiuipo de Android
@@ -23,10 +21,15 @@ import com.example.fillmeapp.databinding.ActivityThirdBinding
 class ThirdActivity : AppCompatActivity() {
 
     lateinit var binding3: ActivityThirdBinding
+
     fun initViews() {
         binding3.toolBar.title = "PMOS TEAM"
         binding3.txt31.text = intent.getStringExtra("data5")
         binding3.txt32.text = intent.getStringExtra("data6")
+    }
+    fun getSubtitle(): CharSequence {
+        binding3.toolBar.subtitle = "An awesome team"
+        return (binding3.toolBar.subtitle)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +43,9 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
         initViews()
+        getSubtitle()
         setRecyclerView1()
         setRecyclerView2()
-
     }
 
     private fun setRecyclerView1() {
