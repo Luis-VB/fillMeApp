@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.myButtonId4.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
-            intent.putExtra("data5","PMOS Android Team")
-            intent.putExtra("data6","PMOS iOS Team")
+//            intent.putExtra("data5","PMOS Android Team")
+//            intent.putExtra("data6","PMOS iOS Team")
             startActivity(intent)
         }
     }
