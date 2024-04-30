@@ -11,6 +11,19 @@
     <string name="change_activity">Change_Activity</string>
     <string name="spinner_title" />
     <string name="spinner_title2">Select text color</string>
+<<<<<<< Updated upstream
+=======
+    <string name="enter_text">Enter text</string>
+    <string name="Enter_Text" />
+    <string name="select_color" />
+    <string name="i_want_my_joke">I want my joke!</string>
+    <string name="change_spinner_color">Change spinner color</string>
+    <string name="android_team">Android Team</string>
+    <string name="pmos_android_team_members">PMOS Android_Team Members</string>
+    <string name="team_members">Team Members</string>
+    <string name="ios_team_members">iOS Team Members</string>
+    <string name="name" />
+>>>>>>> Stashed changes
     <string-array name="spinner_array">
         <item>Black</item>
         <item>Blue</item>
