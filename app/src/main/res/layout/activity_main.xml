@@ -5,6 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< Updated upstream
+=======
+    android:layout_weight="4"
+    android:background="@color/material_dynamic_neutral90"
+    android:orientation="vertical"
+>>>>>>> Stashed changes
     tools:context=".MainActivity">
 
 
@@ -47,7 +53,25 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.881"
+=======
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toEndOf="@+id/myButtonId1"
+        app:layout_constraintTop_toBottomOf="@+id/color_spinner"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/i_am_username"
+        android:textColor="@color/primary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+>>>>>>> Stashed changes
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083" />
@@ -57,7 +81,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/accent"
+<<<<<<< Updated upstream
         android:text="@string/change_activity"
+=======
+        android:text="@string/i_want_my_joke"
+        android:textColor="@color/primary"
+>>>>>>> Stashed changes
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +99,14 @@
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:text="@string/i_am_username"
         android:textSize="20sp"
+=======
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/accent"
+        android:text="@string/team_members"
+>>>>>>> Stashed changes
         android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +115,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.196" />
 
+<<<<<<< Updated upstream
     <TextView
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
@@ -108,6 +144,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.356" />
 
+=======
+>>>>>>> Stashed changes
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,12 @@
     <string name="pmos_android_team_members">PMOS Android_Team Members</string>
     <string name="team_members">Team Members</string>
     <string name="ios_team_members">iOS Team Members</string>
+<<<<<<< Updated upstream
     <string name="name" />
+=======
+    <string name="Name" />
+    <string name="Age" />
+>>>>>>> Stashed changes
     <string-array name="spinner_array">
         <item>Black</item>
         <item>Blue</item>

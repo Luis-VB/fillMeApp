@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#33405f</color>
     <color name="blue">#3c65c2</color>
+    <color name="ActionBarTitle">#33405f</color>
+    <color name="ActionBarBackground">#33405f</color>
 </resources>

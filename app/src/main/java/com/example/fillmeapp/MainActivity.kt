@@ -53,8 +53,22 @@ class MainActivity : AppCompatActivity() {
         }
         button3.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
+<<<<<<< Updated upstream
             intent.putExtra("data", "Hola, como estas?")
             intent.putExtra("data1", "Muy bien, y tu?")
+=======
+            intent.putExtra("data", "- Hi, mi dog doesn't have a nose.")
+            intent.putExtra("data1", "- Aha, and how does he smells?.")
+            intent.putExtra("data2", "- Terrible!")
+            intent.putExtra("data3", "- And how old is he?")
+            intent.putExtra("data4", 45)
+            startActivity(intent)
+        }
+        binding.myButtonId4.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            intent.putExtra("data5","PMOS Android Team")
+            intent.putExtra("data6","PMOS iOS Team")
+>>>>>>> Stashed changes
             startActivity(intent)
         }
     }

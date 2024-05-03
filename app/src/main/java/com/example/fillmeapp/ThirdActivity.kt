@@ -1,6 +1,5 @@
 package com.example.fillmeapp
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +22,7 @@ class ThirdActivity : AppCompatActivity() {
     lateinit var binding3: ActivityThirdBinding
 
     fun initViews() {
+
 //        binding3.toolBar.title = "PMOS TEAM"
         binding3.txt31.text = intent.getStringExtra("data5")
         binding3.txt32.text = intent.getStringExtra("data6")
@@ -32,10 +32,17 @@ class ThirdActivity : AppCompatActivity() {
 //        return (binding3.toolBar.subtitle)
 //    }
 
+        binding3.myToolbar.title = "PMOS Team"
+        binding3.myToolbar.subtitle = "An awesome team"
+        binding3.txt31.text = intent.getStringExtra("data5")
+        binding3.txt32.text = intent.getStringExtra("data6")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding3 = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding3.root)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -43,13 +50,14 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
         initViews()
-//        getSubtitle()
+
         setRecyclerView1()
         setRecyclerView2()
     }
 
     private fun setRecyclerView1() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView1)
+
         val androidTeamList = mapOf(
             "Patricia" to 26,
             "Arina" to 25,
@@ -60,16 +68,32 @@ class ThirdActivity : AppCompatActivity() {
             "Tomas" to 32,
             "Svyatoslav" to 29,
             "Luis" to 22
+
+        val mapAndroidDevs = mapOf(
+            "Patricia" to 26,
+            "Arina" to 25,
+            "Barbora" to 29,
+            "Attila" to 45,
+            "Lukas" to 34,
+            "Jiri" to 31,
+            "Tomas" to 32,
+            "Svyatoslav" to 29,
+            "Luis" to 42
+
         )
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
+
             adapter = ItemAdapter(androidTeamList.keys, androidTeamList.values)
+
+            adapter = ItemAdapter(mapAndroidDevs.map {"${it.key}  ${it.value}"}.toList())
         }
     }
 
     private fun setRecyclerView2() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView2)
+
         val iOSTeamList = mapOf(
             "Jan" to 44,
             "Helder" to 35,
@@ -82,6 +106,19 @@ class ThirdActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
             adapter = ItemAdapter(iOSTeamList.keys, iOSTeamList.values)
+
+        val mapiOSDevs = mapOf(
+            "Jan" to 45,
+            "Helder" to 38,
+            "Mohammed" to 35,
+            "Myles" to 33,
+            "Martin" to 32,
+            "Jaime" to 31)
+        recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@ThirdActivity)
+            adapter = ItemAdapter(mapiOSDevs.map{"${it.key} ${it.value}"}.toList())
+
         }
     }
 
@@ -105,8 +142,10 @@ class ItemAdapter(val nameList: Set<String>, val ageList: Collection<Int>) :
     }
 
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         private val textValue1: TextView = view.findViewById(R.id.txt_rv)
         private val textValue2: TextView = view.findViewById(R.id.txt_rv2)
+
         fun bind(position: Int) {
             textValue1.text = nameList.toString()
             textValue2.text = ageList.toString()
