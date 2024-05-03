@@ -27,10 +27,6 @@ class ThirdActivity : AppCompatActivity() {
         binding3.txt31.text = intent.getStringExtra("data5")
         binding3.txt32.text = intent.getStringExtra("data6")
     }
-    fun getSubtitle(): CharSequence {
-        binding3.toolBar.subtitle = "An awesome team"
-        return (binding3.toolBar.subtitle)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,44 +39,49 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
         initViews()
-        getSubtitle()
         setRecyclerView1()
         setRecyclerView2()
     }
 
     private fun setRecyclerView1() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView1)
-        val androidTeamList = mutableListOf(
-            "Patricia",
-            "Arina",
-            "Barbora",
-            "Attila",
-            "Lukas",
-            "Jiri",
-            "Tomas",
-            "Svyatoslav",
-            "Luis"
+        val androidDevs = mapOf(
+            "Patricia" to 27,
+            "Arina" to 25,
+            "Barbora" to 29,
+            "Attila" to 44,
+            "Lukas" to 33,
+            "Jiri" to 31,
+            "Tomas" to 32,
+            "Svyatoslav" to 29,
+            "Luis" to 42
         )
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
-            adapter = ItemAdapter(androidTeamList.shuffled())
+            adapter = ItemAdapter(androidDevs)
         }
     }
 
     private fun setRecyclerView2() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView2)
-        val iOSTeamList = mutableListOf("Jan", "Helder", "Mohammed", "Myles", "Martin", "Jaime")
+        val iOSTeamDevs = mapOf(
+            "Jan" to 43,
+            "Helder" to 36,
+            "Mohammed" to 33,
+            "Myles" to 34,
+            "Martin" to 32,
+            "Jaime" to 31)
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
-            adapter = ItemAdapter(iOSTeamList.shuffled())
+            adapter = ItemAdapter(iOSTeamDevs)
         }
     }
 
 }
 
-class ItemAdapter(val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(val dataSet: Map<String, Int>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater
             .from(parent.context)
@@ -99,7 +100,8 @@ class ItemAdapter(val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val textValue: TextView = view.findViewById(R.id.txt_rv)
         fun bind(position: Int) {
-            textValue.text = dataSet[position]
+            textValue.text = dataSet.keys.toList()[position] + dataSet.values.toList()[position]
+
         }
     }
 }
