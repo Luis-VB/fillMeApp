@@ -8,7 +8,7 @@
     android:background="@color/material_dynamic_neutral90"
     android:layout_weight="4"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <Spinner
         android:id="@+id/color_spinner"

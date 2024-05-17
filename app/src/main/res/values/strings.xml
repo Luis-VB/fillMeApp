@@ -20,6 +20,8 @@
     <string name="pmos_android_team_members">PMOS Android_Team Members</string>
     <string name="team_members">Team Members</string>
     <string name="ios_team_members">iOS Team Members</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="movie_year">Movie Year</string>
     <string-array name="spinner_array">
         <item>Black</item>
         <item>Blue</item>

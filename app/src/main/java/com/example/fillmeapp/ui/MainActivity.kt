@@ -1,4 +1,4 @@
-package com.example.fillmeapp
+package com.example.fillmeapp.ui
 
 import android.content.Intent
 import android.graphics.Color.parseColor
@@ -7,12 +7,11 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fillmeapp.R
+import com.example.fillmeapp.data.ColorButtonStatus
+import com.example.fillmeapp.data.UserProfileData
 import com.example.fillmeapp.databinding.ActivityMainBinding
 /*
          Tarea1: Tomar el profile del usuario y escribirlo en textos dieferentes e inicializarlos

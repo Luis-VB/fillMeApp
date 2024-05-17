@@ -1,4 +1,4 @@
-package com.example.fillmeapp
+package com.example.fillmeapp.ui
 
 
 import android.os.Bundle
@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fillmeapp.R
 import com.example.fillmeapp.databinding.ActivityThirdBinding
 
 /*  1. Crear un titulo o encabezado (TextView) para el eqiuipo de Android
@@ -21,66 +22,35 @@ import com.example.fillmeapp.databinding.ActivityThirdBinding
 class ThirdActivity : AppCompatActivity() {
 
     lateinit var binding3: ActivityThirdBinding
-
-    fun initViews() {
-        binding3.toolBar.title = "PMOS TEAM"
-        binding3.txt31.text = intent.getStringExtra("data5")
-        binding3.txt32.text = intent.getStringExtra("data6")
-    }
-    fun getSubtitle(): CharSequence {
-        binding3.toolBar.subtitle = "An awesome team"
-        return (binding3.toolBar.subtitle)
-    }
-
+    private lateinit var viewModel: MovieViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding3 = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding3.root)
+        viewModel = MovieViewModel()
+        viewModel.getRandomMovie()
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        initViews()
-        getSubtitle()
+
         setRecyclerView1()
-        setRecyclerView2()
     }
 
     private fun setRecyclerView1() {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView1)
-        val androidTeamList = mutableListOf(
-            "Patricia",
-            "Arina",
-            "Barbora",
-            "Attila",
-            "Lukas",
-            "Jiri",
-            "Tomas",
-            "Svyatoslav",
-            "Luis"
-        )
+        val recyclerView: RecyclerView = findViewById(R.id.movies_recycler_view)
+        val movieData = mutableListOf<String>()
         recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
-            adapter = ItemAdapter(androidTeamList.shuffled())
+            adapter = ItemAdapter(movieData)
         }
     }
-
-    private fun setRecyclerView2() {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView2)
-        val iOSTeamList = mutableListOf("Jan", "Helder", "Mohammed", "Myles", "Martin", "Jaime")
-        recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@ThirdActivity)
-            adapter = ItemAdapter(iOSTeamList.shuffled())
-        }
-    }
-
 }
 
-class ItemAdapter(val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter (val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater
             .from(parent.context)
@@ -97,9 +67,15 @@ class ItemAdapter(val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.
     }
 
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val textValue: TextView = view.findViewById(R.id.txt_rv)
+        private val textTitle: TextView = view.findViewById(R.id.movie_title)
+        private val textDirector: TextView = view.findViewById(R.id.movie_director)
+        private val textGenera: TextView = view.findViewById(R.id.movie_genera)
+        private val textYear: TextView = view.findViewById(R.id.movie_year)
         fun bind(position: Int) {
-            textValue.text = dataSet[position]
+            textTitle.text = dataSet[position]
+            textDirector.text = dataSet[position]
+            textGenera.text = dataSet[position]
+            textYear.text = dataSet[position]
         }
     }
 }
