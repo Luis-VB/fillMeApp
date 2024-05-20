@@ -11,8 +11,8 @@ import retrofit2.Response
 
 class MovieViewModel : ViewModel() {
     var randomMoviesLiveData = MutableLiveData<MovieDTO>()
-    fun getRandomMovie() {
-        RetroFitInstance.api.getRandomMovie("976aacaa","Rambo").enqueue(object : Callback<MovieDTO> {
+    fun getMovie() {
+        RetroFitInstance.api.getMovie("976aacaa","Rambo").enqueue(object : Callback<MovieDTO> {
             override fun onResponse(call: Call<MovieDTO>, response: Response<MovieDTO>) {
                 if (response.body() != null) {
                     val randomMovie: MovieDTO = response.body()!!

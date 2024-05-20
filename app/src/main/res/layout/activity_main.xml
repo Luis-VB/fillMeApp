@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/team_members"
+        android:text="@string/get_a_movie_card"
         android:backgroundTint="@color/accent"
         android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"

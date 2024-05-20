@@ -1,14 +1,15 @@
 package com.example.fillmeapp.network
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
 @Serializable
 data class MovieDTO(
-    @SerialName("Actors") val Actors: String? = null,
-    @SerialName("Awards") val Awards: String,
-    @SerialName("BoxOffice") val BoxOffice: String,
+    @SerialName("Actors") val actors: String? = null,
+    @SerialName("Awards") val awards: String,
+    @SerialName("BoxOffice") val boxOffice: String,
     @SerialName("Country") val Country: String,
     @SerialName("DVD") val DVD: String,
     @SerialName("Director") val Director: String,
@@ -31,4 +32,9 @@ data class MovieDTO(
     @SerialName("imdbID") val imdbID: String,
     @SerialName("imdbRating") val imdbRating: String,
     @SerialName("imdbVotes") val imdbVotes: String
+)
+@Serializable
+data class Rating(
+    @SerialName("Source") val Source: String,
+    @SerialName("Value") val Value: String
 )

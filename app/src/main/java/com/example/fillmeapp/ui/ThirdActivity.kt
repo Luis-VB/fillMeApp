@@ -28,7 +28,7 @@ class ThirdActivity : AppCompatActivity() {
         binding3 = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding3.root)
         viewModel = MovieViewModel()
-        viewModel.getRandomMovie()
+        viewModel.getMovie()
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
