@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fillmeapp.R
+import com.example.fillmeapp.data.MovieData
 import com.example.fillmeapp.databinding.ActivityThirdBinding
 
 /*  1. Crear un titulo o encabezado (TextView) para el eqiuipo de Android
@@ -21,14 +22,13 @@ import com.example.fillmeapp.databinding.ActivityThirdBinding
 * */
 class ThirdActivity : AppCompatActivity() {
 
-    lateinit var binding3: ActivityThirdBinding
+    lateinit var binding: ActivityThirdBinding
     private lateinit var viewModel: MovieViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding3 = ActivityThirdBinding.inflate(layoutInflater)
-        setContentView(binding3.root)
+        binding = ActivityThirdBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         viewModel = MovieViewModel()
-        viewModel.getMovie()
         enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,21 +36,32 @@ class ThirdActivity : AppCompatActivity() {
             insets
         }
 
-        setRecyclerView1()
+        setRecyclerView()
+        observeMovie()
+        searchMovieByTitle("Rambo")
     }
 
-    private fun setRecyclerView1() {
-        val recyclerView: RecyclerView = findViewById(R.id.movies_recycler_view)
-        val movieData = mutableListOf<String>()
-        recyclerView.apply {
+    private fun setRecyclerView() {
+        binding.moviesRecyclerView.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@ThirdActivity)
-            adapter = ItemAdapter(movieData)
+            adapter = ItemAdapter(mutableListOf())
+        }
+    }
+
+    private fun searchMovieByTitle(title: String) {
+        viewModel.searchMovie(title)
+    }
+
+    private fun observeMovie() {
+        viewModel.movieLiveData.observe(this) {
+            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
         }
     }
 }
 
-class ItemAdapter (val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(var dataSet: List<MovieData>) :
+    RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater
             .from(parent.context)
@@ -66,16 +77,21 @@ class ItemAdapter (val dataSet: List<String>) : RecyclerView.Adapter<ItemAdapter
         holder.bind(position)
     }
 
+    fun updateData(movies: List<MovieData>) {
+        dataSet = movies
+        notifyDataSetChanged()
+    }
+
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val textTitle: TextView = view.findViewById(R.id.movie_title)
         private val textDirector: TextView = view.findViewById(R.id.movie_director)
         private val textGenera: TextView = view.findViewById(R.id.movie_genera)
         private val textYear: TextView = view.findViewById(R.id.movie_year)
         fun bind(position: Int) {
-            textTitle.text = dataSet[position]
-            textDirector.text = dataSet[position]
-            textGenera.text = dataSet[position]
-            textYear.text = dataSet[position]
+            textTitle.text = dataSet[position].title
+            textDirector.text = dataSet[position].director
+            textGenera.text = dataSet[position].genre
+            textYear.text = dataSet[position].year
         }
     }
 }

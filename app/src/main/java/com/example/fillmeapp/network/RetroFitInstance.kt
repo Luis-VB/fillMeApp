@@ -10,7 +10,7 @@ object RetroFitInstance {
 
     val api by lazy {
         Retrofit.Builder()
-            .baseUrl("http://www.omdbapi.com/")
+            .baseUrl("http://www.omdbapi.com")
             //.addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()
