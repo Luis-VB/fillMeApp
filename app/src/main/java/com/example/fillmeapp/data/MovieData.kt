@@ -6,5 +6,6 @@ data class MovieData(
     val director: String,
     val genre: String,
     val imageURL: String,
-    val year: String
+    val year: String,
+    val imdbID: String
 )

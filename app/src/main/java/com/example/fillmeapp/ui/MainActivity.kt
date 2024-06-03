@@ -68,6 +68,12 @@ class MainActivity : AppCompatActivity() {
 //            intent.putExtra("data6","PMOS iOS Team")
             startActivity(intent)
         }
+
+        binding.mySearchButton.setOnClickListener {
+            val intent = Intent(this, MovieActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     fun initSpinner() {
         // Spinner element

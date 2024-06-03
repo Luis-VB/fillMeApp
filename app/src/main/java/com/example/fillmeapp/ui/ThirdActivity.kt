@@ -37,8 +37,10 @@ class ThirdActivity : AppCompatActivity() {
         }
 
         setRecyclerView()
-        observeMovie()
-        searchMovieByTitle("Rambo")
+        observeMovies()
+        searchMovieByTitle("Batman")
+        searchMovieByID("tt1285016")
+        searchMovieBySearch("Superman")
     }
 
     private fun setRecyclerView() {
@@ -53,8 +55,22 @@ class ThirdActivity : AppCompatActivity() {
         viewModel.searchMovie(title)
     }
 
-    private fun observeMovie() {
-        viewModel.movieLiveData.observe(this) {
+    private fun searchMovieByID(id: String) {
+        viewModel.searchMovieByID(id)
+    }
+
+    private fun searchMovieBySearch(title: String) {
+        viewModel.searchMovieBySearch(title)
+    }
+
+    private fun observeMovies() {
+        viewModel.movieLiveDataByTitle.observe(this) {
+            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
+        }
+        viewModel.movieLiveDataByID.observe(this) {
+            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
+        }
+        viewModel.movieLiveDataBySearch.observe(this) {
             (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
         }
     }
@@ -78,7 +94,7 @@ class ItemAdapter(var dataSet: List<MovieData>) :
     }
 
     fun updateData(movies: List<MovieData>) {
-        dataSet = movies
+        dataSet = dataSet + movies
         notifyDataSetChanged()
     }
 
