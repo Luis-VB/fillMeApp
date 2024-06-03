@@ -68,6 +68,14 @@ class MainActivity : AppCompatActivity() {
 //            intent.putExtra("data6","PMOS iOS Team")
             startActivity(intent)
         }
+        binding.myButtonId5.setOnClickListener{
+            val intent = Intent(this, MainComposeActivity::class.java)
+            startActivity(intent)
+        }
+        binding.myButtonId6.setOnClickListener{
+            val intent = Intent(this, MainPartialComposeActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun initSpinner() {
         // Spinner element

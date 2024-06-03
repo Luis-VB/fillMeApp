@@ -28,4 +28,7 @@
         <item>Blue</item>
         <item>Purple</item>
     </string-array>
+    <string name="title_activity_main_compose">MainComposeActivity</string>
+    <string name="launch_full_compose">Launch Full Compose</string>
+    <string name="launch_partial_compose">Launch Partial Compose</string>
 </resources>
