@@ -13,7 +13,6 @@ class FourthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFourthBinding
     private lateinit var viewModel: MovieViewModel
-    private lateinit var moviesRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

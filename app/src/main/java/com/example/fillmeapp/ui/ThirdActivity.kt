@@ -99,7 +99,10 @@ class ItemAdapter(var dataSet: List<Movie>) :
         private val textYear: TextView = itemView.findViewById(R.id.movie_card_year)
         private val imageView: ImageView = itemView.findViewById(R.id.movie_poster)
         fun bind(position: Int) {
-            Glide.with(itemView.context).load(dataSet[position].poster).into(imageView)
+            Glide.with(itemView.context)
+                .load(dataSet[position].poster)
+                .fitCenter()
+                .into(imageView)
             textTitle.text = dataSet[position].title
             textDirector.text = dataSet[position].director
             textGenera.text = dataSet[position].genre
