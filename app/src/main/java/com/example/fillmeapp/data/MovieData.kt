@@ -5,6 +5,7 @@ data class Movie(
     val title: String,
     val director: String,
     val genre: String,
+    val Type: String,
     val poster: String,
     val year: String,
     val imdbID: String,

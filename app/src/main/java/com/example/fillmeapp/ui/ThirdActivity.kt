@@ -94,9 +94,10 @@ class ItemAdapter(var dataSet: List<Movie>) :
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textTitle: TextView = itemView.findViewById(R.id.movie_card_title)
-        private val textDirector: TextView = itemView.findViewById(R.id.movie_card_director)
-        private val textGenera: TextView = itemView.findViewById(R.id.movie_card_genre)
+//        private val textDirector: TextView = itemView.findViewById(R.id.movie_card_director)
+//        private val textGenera: TextView = itemView.findViewById(R.id.movie_card_genre)
         private val textYear: TextView = itemView.findViewById(R.id.movie_card_year)
+        private val cardType: TextView = itemView.findViewById(R.id.movie_card_type)
         private val imageView: ImageView = itemView.findViewById(R.id.movie_poster)
         fun bind(position: Int) {
             Glide.with(itemView.context)
@@ -104,8 +105,9 @@ class ItemAdapter(var dataSet: List<Movie>) :
                 .fitCenter()
                 .into(imageView)
             textTitle.text = dataSet[position].title
-            textDirector.text = dataSet[position].director
-            textGenera.text = dataSet[position].genre
+            cardType.text = dataSet[position].Type
+//            textDirector.text = dataSet[position].director
+//            textGenera.text = dataSet[position].genre
             textYear.text = dataSet[position].year
         }
     }

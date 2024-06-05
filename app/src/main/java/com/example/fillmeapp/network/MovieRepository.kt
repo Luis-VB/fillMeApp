@@ -20,7 +20,8 @@ class MovieRepository {
                     poster = it.Poster?:"",
                     genre = it.Genre?:"",
                     year = it.Year?:"",
-                    imdbID = it.imdbID?:""
+                    imdbID = it.imdbID?:"",
+                    Type = it.Type?:""
                 )
             }
         } else {
@@ -40,7 +41,8 @@ class MovieRepository {
                     poster = it.Poster?:"",
                     genre = it.Genre?:"",
                     year = it.Year?:"",
-                    imdbID = it.imdbID?:""
+                    imdbID = it.imdbID?:"",
+                    Type = it.Type?:""
                 )
             }
         } else {
@@ -62,7 +64,8 @@ class MovieRepository {
                             poster = movieDto.Poster ?: "",
                             genre = movieDto.Genre ?: "",
                             year = movieDto.Year ?: "",
-                            imdbID = movieDto.imdbID ?: ""
+                            imdbID = movieDto.imdbID ?: "",
+                            Type = movieDto.Type?:""
                         )
                     }
                     MovieList(movies)

@@ -7,7 +7,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/movie_card"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,6 +18,7 @@
         android:id="@+id/movie_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/accent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
@@ -48,25 +49,33 @@
                 android:textStyle="bold"
                 android:layout_marginTop="8dp" />
 
-            <TextView
-                android:id="@+id/movie_card_director"
-                android:hint="Movie director"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp" />
+<!--            <TextView-->
+<!--                android:id="@+id/movie_card_director"-->
+<!--                android:hint="Movie director"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="8dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/movie_card_genre"-->
+<!--                android:hint="Movie genera"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="14sp"-->
+<!--                android:layout_marginTop="4dp" />-->
 
             <TextView
-                android:id="@+id/movie_card_genre"
-                android:hint="Movie genera"
+                android:id="@+id/movie_card_year"
+                android:hint="Movie Year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp" />
 
             <TextView
-                android:id="@+id/movie_card_year"
-                android:hint="Movie Year"
+                android:id="@+id/movie_card_type"
+                android:hint="card type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
