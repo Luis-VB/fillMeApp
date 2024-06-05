@@ -3,11 +3,10 @@ package com.example.fillmeapp.ui
 import androidx.lifecycle.MutableLiveData
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.example.fillmeapp.data.MovieData
-import com.example.fillmeapp.network.MovieApi
+import com.example.fillmeapp.data.Movie
+import com.example.fillmeapp.data.MovieList
 import com.example.fillmeapp.network.MovieRepository
-import com.example.fillmeapp.network.dto.MovieDTO
-import com.example.fillmeapp.network.RetroFitInstance
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -15,10 +14,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieViewModel : ViewModel() {
-    var movieLiveDataByTitle = MutableLiveData<MovieData>()
-    var movieLiveDataByID = MutableLiveData<MovieData>()
-    var movieLiveDataBySearch = MutableLiveData<MovieData>()
-
+    var movieLiveDataByTitle = MutableLiveData<Movie>()
+    var movieLiveDataByID = MutableLiveData<Movie>()
+    var movieLiveDataByInputText = MutableLiveData<MovieList>()
 
     private var movieRepository: MovieRepository = MovieRepository()
     private var job: Job? = null
@@ -59,18 +57,18 @@ class MovieViewModel : ViewModel() {
         }
     }
 
-    fun searchMovieBySearch(title: String) {
+    fun searchMovieByInputText(title: String) {
         job = CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = movieRepository.getMovieBySearch(title)
+                val response = movieRepository.getMovieByInputText(title)
                 withContext(Dispatchers.Main) {
                     response?.let {
-                        movieLiveDataBySearch.value = it
+                        movieLiveDataByInputText.value = it
                     }
                 }
             } catch (e: Exception) {
                 // Handle or log exception
-                Log.e("MovieSearchBySearch", "Error occurred while searching for movie: $title", e)
+                Log.e("MovieSearchByInputText", "Error occurred while searching for movie: $title", e)
             }
         }
     }

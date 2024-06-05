@@ -1,6 +1,7 @@
 package com.example.fillmeapp.network
 
 import com.example.fillmeapp.network.dto.MovieDTO
+import com.example.fillmeapp.network.dto.MoviesDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,7 +11,6 @@ interface MovieApi {
     suspend fun getMovieByTitle(
         @Query("apikey") apikey: String,
         @Query("t") title: String,
-
     ): Response<MovieDTO>
 
     @GET("/")
@@ -18,9 +18,10 @@ interface MovieApi {
         @Query("apikey") apikey: String,
         @Query("i") id: String,
     ): Response<MovieDTO>
+
     @GET("/")
-    suspend fun getMovieBySearch(
+    suspend fun getMovieByInputText(
         @Query("apikey") apikey: String,
         @Query("s") title: String,
-    ): Response<MovieDTO>
+    ): Response<MoviesDTO>
 }

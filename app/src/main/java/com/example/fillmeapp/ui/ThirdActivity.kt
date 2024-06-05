@@ -12,9 +12,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fillmeapp.R
-import com.example.fillmeapp.data.MovieData
 import com.example.fillmeapp.databinding.ActivityThirdBinding
+import android.widget.ImageView
+import com.example.fillmeapp.data.Movie
+
 
 /*  1. Crear un titulo o encabezado (TextView) para el eqiuipo de Android
     2. Crear un RecyclerView con una lista de strings que contenga los nombres de los companeros de equipo
@@ -38,9 +41,7 @@ class ThirdActivity : AppCompatActivity() {
 
         setRecyclerView()
         observeMovies()
-        searchMovieByTitle("Batman")
         searchMovieByID("tt1285016")
-        searchMovieBySearch("Superman")
     }
 
     private fun setRecyclerView() {
@@ -59,29 +60,22 @@ class ThirdActivity : AppCompatActivity() {
         viewModel.searchMovieByID(id)
     }
 
-    private fun searchMovieBySearch(title: String) {
-        viewModel.searchMovieBySearch(title)
-    }
-
     private fun observeMovies() {
         viewModel.movieLiveDataByTitle.observe(this) {
-            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
+            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData((it))
         }
         viewModel.movieLiveDataByID.observe(this) {
-            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
-        }
-        viewModel.movieLiveDataBySearch.observe(this) {
-            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData(listOf(it))
+            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData((it))
         }
     }
 }
 
-class ItemAdapter(var dataSet: List<MovieData>) :
+class ItemAdapter(var dataSet: List<Movie>) :
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.item_view, parent, false)
+            .inflate(R.layout.activity_fourth_card, parent, false)
         return ItemViewHolder(view)
     }
 
@@ -93,17 +87,19 @@ class ItemAdapter(var dataSet: List<MovieData>) :
         holder.bind(position)
     }
 
-    fun updateData(movies: List<MovieData>) {
-        dataSet = dataSet + movies
+    fun updateData(movie: Movie) {
+        dataSet = listOf(movie)
         notifyDataSetChanged()
     }
 
-    inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val textTitle: TextView = view.findViewById(R.id.movie_title)
-        private val textDirector: TextView = view.findViewById(R.id.movie_director)
-        private val textGenera: TextView = view.findViewById(R.id.movie_genera)
-        private val textYear: TextView = view.findViewById(R.id.movie_year)
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val textTitle: TextView = itemView.findViewById(R.id.movie_card_title)
+        private val textDirector: TextView = itemView.findViewById(R.id.movie_card_director)
+        private val textGenera: TextView = itemView.findViewById(R.id.movie_card_genre)
+        private val textYear: TextView = itemView.findViewById(R.id.movie_card_year)
+        private val imageView: ImageView = itemView.findViewById(R.id.movie_poster)
         fun bind(position: Int) {
+            Glide.with(itemView.context).load(dataSet[position].poster).into(imageView)
             textTitle.text = dataSet[position].title
             textDirector.text = dataSet[position].director
             textGenera.text = dataSet[position].genre

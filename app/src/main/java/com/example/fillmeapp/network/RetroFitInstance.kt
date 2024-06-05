@@ -11,7 +11,7 @@ object RetroFitInstance {
     val api by lazy {
         Retrofit.Builder()
             .baseUrl("http://www.omdbapi.com")
-            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(Json{ ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
             .build()
             .create(MovieApi::class.java)
     }

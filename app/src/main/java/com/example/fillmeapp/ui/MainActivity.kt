@@ -64,14 +64,18 @@ class MainActivity : AppCompatActivity() {
         }
         binding.myButtonId4.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
-//            intent.putExtra("data5","PMOS Android Team")
-//            intent.putExtra("data6","PMOS iOS Team")
             startActivity(intent)
         }
 
         binding.mySearchButton.setOnClickListener {
-            val intent = Intent(this, MovieActivity::class.java)
-            startActivity(intent)
+            val movieTitle = binding.movieSearch.text.toString()
+            if (movieTitle.isNotEmpty()) {
+                val intent = Intent(this, FourthActivity::class.java)
+                intent.putExtra("MOVIE_TITLE", movieTitle)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Please enter a movie title", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

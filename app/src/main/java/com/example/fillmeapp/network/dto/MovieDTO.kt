@@ -4,36 +4,43 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
+
 @Serializable
 data class MovieDTO(
-    @SerialName("Actors") val actors: String? = null,
-    @SerialName("Awards") val awards: String,
-    @SerialName("BoxOffice") val boxOffice: String,
-    @SerialName("Country") val Country: String,
-    @SerialName("DVD") val DVD: String,
-    @SerialName("Director") val Director: String,
-    @SerialName("Genre") val Genre: String,
-    @SerialName("Language") val Language: String,
-    @SerialName("Metascore") val Metascore: String,
-    @SerialName("Plot") val Plot: String,
-    @SerialName("Poster") val Poster: String,
-    @SerialName("Production") val Production: String,
-    @SerialName("Rated") val Rated: String,
-    @SerialName("Ratings") val Ratings: List<Rating>,
-    @SerialName("Released") val Released: String,
-    @SerialName("Response") val Response: String,
-    @SerialName("Runtime") val Runtime: String,
-    @SerialName("Title") val Title: String,
-    @SerialName("Type") val Type: String,
-    @SerialName("Website") val Website: String,
-    @SerialName("Writer") val Writer: String,
-    @SerialName("Year") val Year: String,
-    @SerialName("imdbID") val imdbID: String,
-    @SerialName("imdbRating") val imdbRating: String,
-    @SerialName("imdbVotes") val imdbVotes: String
+@SerialName("Actors") val actors: String? = null,
+    @SerialName("Awards") val awards: String? = null,
+    @SerialName("BoxOffice") val boxOffice: String? = null,
+    @SerialName("Country") val Country: String? = null,
+    @SerialName("DVD") val DVD: String? = null,
+    @SerialName("Director") val Director: String? = null,
+    @SerialName("Genre") val Genre: String? = null,
+    @SerialName("Language") val Language: String? = null,
+    @SerialName("Metascore") val Metascore: String? = null,
+    @SerialName("Plot") val Plot: String? = null,
+    @SerialName("Poster") val Poster: String? = null,
+    @SerialName("Production") val Production: String? = null,
+    @SerialName("Rated") val Rated: String? = null,
+    @SerialName("Ratings") val Ratings: List<Rating>? = null,
+    @SerialName("Released") val Released: String? = null,
+    @SerialName("Response") val Response: String? = null,
+    @SerialName("Runtime") val Runtime: String? = null,
+    @SerialName("Title") val Title: String? = null,
+    @SerialName("Type") val Type: String? = null,
+    @SerialName("Website") val Website: String? = null,
+    @SerialName("Writer") val Writer: String? = null,
+    @SerialName("Year") val Year: String? = null,
+    @SerialName("imdbID") val imdbID: String? = null,
+    @SerialName("imdbRating") val imdbRating: String? = null,
+    @SerialName("imdbVotes") val imdbVotes: String? = null
 )
 @Serializable
 data class Rating(
     @SerialName("Source") val Source: String,
     @SerialName("Value") val Value: String
+)
+
+@Serializable
+data class MoviesDTO(
+    @SerialName("Search") val movies: List<MovieDTO>,
+    @SerialName("totalResults") val totalResults: String? = null
 )

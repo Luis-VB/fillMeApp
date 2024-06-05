@@ -18,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -32,6 +35,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 
     compileOptions {
@@ -41,9 +45,21 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+    packaging {
+        resources {
+            excludes.add("META-INF/LGPL2.1")
+        }
+
+    }
 }
 
 dependencies {
+    implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.material3.android)
+    
     val nav_version = "2.7.7"
 
     implementation(libs.androidx.core.ktx)
@@ -54,6 +70,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+
+    //Compose
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation("androidx.compose.ui:ui:1.1.0")
+    implementation("androidx.compose.foundation:foundation:1.1.0")
+    implementation("androidx.compose.runtime:runtime:1.1.0")
+
 
     // Navigation components
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
@@ -72,5 +97,6 @@ dependencies {
     //dependencies for the view model and live data
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
-    
+
+
 }
