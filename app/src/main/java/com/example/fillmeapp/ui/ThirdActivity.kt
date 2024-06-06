@@ -88,7 +88,7 @@ class ItemAdapter(var dataSet: List<Movie>) :
     }
 
     fun updateData(movie: Movie) {
-        dataSet = listOf(movie)
+        dataSet = dataSet + movie
         notifyDataSetChanged()
     }
 

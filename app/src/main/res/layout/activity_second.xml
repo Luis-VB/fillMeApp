@@ -9,12 +9,11 @@
 
     <TextView
         android:id="@+id/txt21"
+        style="@style/GlobalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/i_am_username"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -24,24 +23,22 @@
 
     <TextView
         android:id="@+id/txt22"
+        style="@style/GlobalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/i_am_userage"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt21" />
 
     <TextView
         android:id="@+id/txt23"
+        style="@style/GlobalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/i_am_usercity"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/txt24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +46,11 @@
 
     <TextView
         android:id="@+id/txt24"
+        style="@style/GlobalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="I am a question"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,12 +58,11 @@
 
     <TextView
         android:id="@+id/txt25"
+        style="@style/GlobalTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="I am a number"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"

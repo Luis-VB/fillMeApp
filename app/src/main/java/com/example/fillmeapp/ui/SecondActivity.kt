@@ -15,13 +15,13 @@ class SecondActivity : AppCompatActivity() {
     lateinit var binding2: ActivitySecondBinding
     fun initViews() {
 
-        binding2.txt21.setTextColor(getColor(R.color.accent))
+        binding2.txt21.setTextColor(getColor(R.color.colorPrimaryDark))
         binding2.txt21.text = intent.getStringExtra("data")
         binding2.txt22.text = intent.getStringExtra("data1")
-        binding2.txt23.setTextColor(getColor(R.color.accent))
+        binding2.txt23.setTextColor(getColor(R.color.colorPrimaryDark))
         binding2.txt23.text = intent.getStringExtra("data2")
         binding2.txt24.text = intent.getStringExtra("data3")
-        binding2.txt25.setTextColor(getColor(R.color.accent))
+        binding2.txt25.setTextColor(getColor(R.color.colorPrimaryDark))
         binding2.txt25.text = intent.getIntExtra("data4",0).toString()
     }
 
