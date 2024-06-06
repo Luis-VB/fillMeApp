@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fillmeapp.R
@@ -33,7 +34,7 @@ import com.example.fillmeapp.databinding.ActivityMainBinding
         Tarea 5:
         Anade el color correspondiente del Spinner
         */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     var pacoProfile = UserProfileData()
     var colorButtonStatus: ColorButtonStatus = ColorButtonStatus.BUTTON_STATE_BLACK
     lateinit var binding: ActivityMainBinding

@@ -3,6 +3,7 @@ package com.example.fillmeapp.ui
 Pasar un numero y otro texto igual que hemos hecho con el userName a SecondActivity desde la MainActivity*/
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.fillmeapp.R
 import com.example.fillmeapp.databinding.ActivitySecondBinding
 
-class SecondActivity : AppCompatActivity() {
+class SecondActivity : BaseActivity() {
 
     lateinit var binding2: ActivitySecondBinding
     fun initViews() {
@@ -34,7 +35,9 @@ class SecondActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+
         }
+
         initViews()
     }
 }

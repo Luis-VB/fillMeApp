@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide
 import com.example.fillmeapp.R
 import com.example.fillmeapp.databinding.ActivityThirdBinding
 import android.widget.ImageView
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.fillmeapp.data.Movie
 
 
@@ -23,7 +25,7 @@ import com.example.fillmeapp.data.Movie
     2. Crear un RecyclerView con una lista de strings que contenga los nombres de los companeros de equipo
     3. Llegar a la 3a Activity desde la main con un boton que la lanze (Intent)
 * */
-class ThirdActivity : AppCompatActivity() {
+class ThirdActivity : BaseActivity() {
 
     lateinit var binding: ActivityThirdBinding
     private lateinit var viewModel: MovieViewModel
@@ -31,13 +33,8 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         viewModel = MovieViewModel()
-        enableEdgeToEdge()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         setRecyclerView()
         observeMovies()
@@ -52,18 +49,18 @@ class ThirdActivity : AppCompatActivity() {
         }
     }
 
-    private fun searchMovieByTitle(title: String) {
-        viewModel.searchMovie(title)
-    }
+//    private fun searchMovieByTitle(title: String) {
+//        viewModel.searchMovie(title)
+//    }
 
     private fun searchMovieByID(id: String) {
         viewModel.searchMovieByID(id)
     }
 
     private fun observeMovies() {
-        viewModel.movieLiveDataByTitle.observe(this) {
-            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData((it))
-        }
+//        viewModel.movieLiveDataByTitle.observe(this) {
+//            (binding.moviesRecyclerView.adapter as ItemAdapter).updateData((it))
+//        }
         viewModel.movieLiveDataByID.observe(this) {
             (binding.moviesRecyclerView.adapter as ItemAdapter).updateData((it))
         }
@@ -100,8 +97,12 @@ class ItemAdapter(var dataSet: List<Movie>) :
         private val cardType: TextView = itemView.findViewById(R.id.movie_card_type)
         private val imageView: ImageView = itemView.findViewById(R.id.movie_poster)
         fun bind(position: Int) {
+            val requestOptions = RequestOptions()
+            requestOptions.transform(RoundedCorners(16))
+
             Glide.with(itemView.context)
                 .load(dataSet[position].poster)
+                .apply(requestOptions)
                 .fitCenter()
                 .into(imageView)
             textTitle.text = dataSet[position].title

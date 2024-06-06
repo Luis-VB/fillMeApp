@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fillmeapp.data.MovieList
 import com.example.fillmeapp.databinding.ActivityFourthBinding
-class FourthActivity : AppCompatActivity() {
+class FourthActivity : BaseActivity() {
 
     private lateinit var binding: ActivityFourthBinding
     private lateinit var viewModel: MovieViewModel
@@ -20,7 +20,6 @@ class FourthActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val moviesRecyclerView = binding.moviesRecyclerView
         viewModel = MovieViewModel()
 
         val movieTitle = intent.getStringExtra("MOVIE_TITLE")
