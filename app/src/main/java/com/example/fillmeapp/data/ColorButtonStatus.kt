@@ -1,4 +1,4 @@
-package com.example.fillmeapp
+package com.example.fillmeapp.data
 
 enum class ColorButtonStatus(var color: String, var nameColor: String) {
     BUTTON_STATE_BLUE("#3c65c2", nameColor = "Blue"),

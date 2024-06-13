@@ -1,4 +1,4 @@
-package com.example.fillmeapp
+package com.example.fillmeapp.data
 
 class UserProfileData {
     var userName: String = "Paco"

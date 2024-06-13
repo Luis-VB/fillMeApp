@@ -1,4 +1,4 @@
-package com.example.fillmeapp
+package com.example.fillmeapp.ui
 
 import android.content.Intent
 import android.graphics.Color.parseColor
@@ -7,12 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fillmeapp.R
+import com.example.fillmeapp.data.ColorButtonStatus
+import com.example.fillmeapp.data.UserProfileData
 import com.example.fillmeapp.databinding.ActivityMainBinding
 /*
          Tarea1: Tomar el profile del usuario y escribirlo en textos dieferentes e inicializarlos
@@ -34,7 +34,7 @@ import com.example.fillmeapp.databinding.ActivityMainBinding
         Tarea 5:
         Anade el color correspondiente del Spinner
         */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     var pacoProfile = UserProfileData()
     var colorButtonStatus: ColorButtonStatus = ColorButtonStatus.BUTTON_STATE_BLACK
     lateinit var binding: ActivityMainBinding
@@ -65,10 +65,20 @@ class MainActivity : AppCompatActivity() {
         }
         binding.myButtonId4.setOnClickListener {
             val intent = Intent(this, ThirdActivity::class.java)
-//            intent.putExtra("data5","PMOS Android Team")
-//            intent.putExtra("data6","PMOS iOS Team")
             startActivity(intent)
         }
+
+        binding.mySearchButton.setOnClickListener {
+            val movieTitle = binding.movieSearch.text.toString()
+            if (movieTitle.isNotEmpty()) {
+                val intent = Intent(this, FourthActivity::class.java)
+                intent.putExtra("MOVIE_TITLE", movieTitle)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Please enter a movie title", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
     fun initSpinner() {
         // Spinner element
@@ -76,10 +86,11 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.spinner_array,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_selected_item
+
         ).also { adapter ->
             //Specify the layout to use when the list of choices appears.
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
             // Apply the adapter to the spinner.
             binding.colorSpinner.adapter = adapter
         }
