@@ -13,27 +13,32 @@
         android:theme="@style/Theme.FillMeApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SearchMovieActivity"
+            android:exported="false"
+            android:label="@string/title_activity_search_movie"
+            android:theme="@style/Theme.FillMeApp" />
+        <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/MainActivityTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/MainActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.SecondActivity"
-            android:theme="@style/MainActivityTheme"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/MainActivityTheme" />
         <activity
             android:name=".ui.ThirdActivity"
-            android:theme="@style/MainActivityTheme"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/MainActivityTheme" />
         <activity
             android:name=".ui.FourthActivity"
-            android:theme="@style/MainActivityTheme"
-            android:exported="true">
-        </activity>
+            android:exported="true"
+            android:theme="@style/MainActivityTheme"></activity>
     </application>
 
 </manifest>

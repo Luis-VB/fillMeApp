@@ -69,14 +69,18 @@ class MainActivity : BaseActivity() {
         }
 
         binding.mySearchButton.setOnClickListener {
-            val movieTitle = binding.movieSearch.text.toString()
-            if (movieTitle.isNotEmpty()) {
-                val intent = Intent(this, FourthActivity::class.java)
-                intent.putExtra("MOVIE_TITLE", movieTitle)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Please enter a movie title", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, SearchMovieActivity::class.java)
+            startActivity(intent)
+
+
+//            val movieTitle = binding.movieSearch.text.toString()
+//            if (movieTitle.isNotEmpty()) {
+//                val intent = Intent(this, SearchMovieActivity::class.java)
+//                intent.putExtra("MOVIE_TITLE", movieTitle)
+//                startActivity(intent)
+//            } else {
+//                Toast.makeText(this, "Please enter a movie title", Toast.LENGTH_SHORT).show()
+//            }
         }
 
     }

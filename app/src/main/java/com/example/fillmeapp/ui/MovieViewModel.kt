@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieViewModel : ViewModel() {
-    var movieLiveDataByTitle = MutableLiveData<Movie>()
+//    var movieLiveDataByTitle = MutableLiveData<Movie>()
     var movieLiveDataByID = MutableLiveData<Movie>()
     var movieLiveDataByInputText = MutableLiveData<MovieList>()
 
@@ -25,21 +25,21 @@ class MovieViewModel : ViewModel() {
         job?.cancel()
     }
 
-    fun searchMovie(title: String) {
-        job = CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val response = movieRepository.getMovieByTitle(title)
-                withContext(Dispatchers.Main) {
-                    response?.let {
-                        movieLiveDataByTitle.value = it
-                    }
-                }
-            } catch (e: Exception) {
-                // Handle or log exception
-                Log.e("MovieSearch", "Error occurred while searching for movie: $title", e)
-            }
-        }
-    }
+//    fun searchMovie(title: String) {
+//        job = CoroutineScope(Dispatchers.IO).launch {
+//            try {
+//                val response = movieRepository.getMovieByTitle(title)
+//                withContext(Dispatchers.Main) {
+//                    response?.let {
+//                        movieLiveDataByTitle.value = it
+//                    }
+//                }
+//            } catch (e: Exception) {
+//                // Handle or log exception
+//                Log.e("MovieSearch", "Error occurred while searching for movie: $title", e)
+//            }
+//        }
+//    }
 
     fun searchMovieByID(id: String) {
         job = CoroutineScope(Dispatchers.IO).launch {
