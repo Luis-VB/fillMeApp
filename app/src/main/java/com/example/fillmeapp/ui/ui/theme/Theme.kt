@@ -37,13 +37,15 @@ fun ProvideColorScheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
         darkColorScheme(
             primary = colorResource(id = R.color.colorPrimary),
             secondary = colorResource(id = R.color.colorAccent),
-            tertiary = colorResource(id = R.color.teal_200)
+            tertiary = colorResource(id = R.color.teal_200),
+            surface = colorResource(id = R.color.white),
         )
     } else {
         lightColorScheme(
             primary = colorResource(id = R.color.colorPrimary),
             secondary = colorResource(id = R.color.colorAccent),
-            tertiary = colorResource(id = R.color.teal_200)
+            tertiary = colorResource(id = R.color.teal_200),
+            surface = colorResource(id = R.color.white)
         )
     }
 
